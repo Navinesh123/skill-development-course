@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SDC – Skills Development Courses</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--card:#fff;--ink:#16142b;--mut:#6b6885;--accent:#7c5cff;--accent2:#5b3df5;--free:#12b886;--amber:#ffb84d;--ok:#12b886;--line:#ffffff24;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--card:#1b1936;--ink:#efecff;--mut:#a8a4c9}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:#f3f1ff;font:400 1rem/1.55 "DM Sans",system-ui,sans-serif;background:radial-gradient(900px 500px at 85% -10%,#4b2fd066,transparent),radial-gradient(700px 400px at -10% 30%,#c2418a40,transparent),#0d0f24 fixed}
+header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:12px 5vw;background:#0d0f24d9;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{font:800 1.6rem Sora,sans-serif;color:#fff;text-decoration:none;letter-spacing:-.5px}
+nav{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+nav a:not(.btn){color:#d9d5ff;text-decoration:none;font-weight:500;font-size:.95rem;padding:7px 12px;border-radius:10px}
+nav a:not(.btn):hover,nav a.on{background:#ffffff1a;color:#fff}
+.dot{background:#ff4d6d;border-radius:20px;font-size:.7rem;padding:1px 7px;margin-left:4px}
+main{max-width:1160px;margin:0 auto;padding:30px 5vw 70px}
+h1,h2,h3{font-family:Sora,sans-serif;margin:0 0 12px;letter-spacing:-.3px;line-height:1.2}
+h1{font-size:clamp(1.7rem,4vw,2.4rem)}h2{font-size:1.5rem;margin-top:34px}
+.btn{display:inline-block;border:0;cursor:pointer;font:700 .9rem "DM Sans",sans-serif;color:#fff;padding:11px 22px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));text-decoration:none;transition:transform .15s,filter .15s}
+.btn.pu{background:linear-gradient(135deg,var(--accent),var(--accent2))}.btn.dk{background:#ffffff1f;border:1px solid var(--line)}.btn.ok{background:linear-gradient(135deg,#20c997,#0ca678)}.btn.sm{padding:8px 16px;font-size:.85rem}.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.08)}:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.hero2{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;padding:20px 0 10px}
+.pill{display:inline-block;background:#12b8862e;color:#7ff0c8;border:1px solid #12b88666;padding:5px 14px;border-radius:30px;font-size:.85rem;font-weight:700;margin-bottom:16px}
+.big{font-size:clamp(2.1rem,5.2vw,3.5rem);font-weight:800;letter-spacing:-1.5px}
+.lead{font-size:1.1rem;color:#cfcaf5;max-width:520px;margin:0 0 22px}.cta{display:flex;gap:12px;flex-wrap:wrap}
+.term{background:#090a1a;border:1px solid var(--line);border-radius:18px;box-shadow:0 30px 60px #0008;overflow:hidden}
+.term .bar2{display:flex;gap:7px;padding:12px 14px;background:#ffffff0d}.term .bar2 i{width:11px;height:11px;border-radius:50%;background:#ff5f57}.term .bar2 i:nth-child(2){background:#febc2e}.term .bar2 i:nth-child(3){background:#28c840}
+.term pre{margin:0;background:transparent;border-radius:0;padding:18px;font-size:.92rem;color:#d7d2ff}.term b{color:#7ff0c8}.term u{text-decoration:none;color:#ffb84d}
+.term .cur{display:inline-block;width:8px;height:1em;background:#fff;vertical-align:-2px;animation:bl 1s steps(2) infinite}@keyframes bl{50%{opacity:0}}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 8px}.stat{background:#ffffff12;border:1px solid var(--line);border-radius:14px;padding:10px 16px;font-size:.9rem}.stat b{font:700 1.2rem Sora}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.step{background:#ffffff0f;border:1px solid var(--line);border-radius:16px;padding:20px}.step .n{width:34px;height:34px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-weight:800;margin-bottom:10px}.step p{margin:0;color:#cfcaf5;font-size:.93rem}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 0 22px}.chip{border:1px solid var(--line);background:#ffffff10;color:#fff;font:600 .88rem "DM Sans";padding:8px 18px;border-radius:30px;cursor:pointer}.chip.on{background:#fff;color:#16142b}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:20px}
+.course{background:var(--card);color:var(--ink);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 30px #0004;transition:transform .2s}.course:hover{transform:translateY(-3px)}
+.ic{position:relative;height:100px;display:grid;place-items:center;font:800 2.2rem Sora;color:#fff}
+.ribbon{position:absolute;top:10px;right:10px;font:700 .7rem "DM Sans";font-style:normal;background:var(--free);padding:3px 10px;border-radius:20px}
+.bd{padding:16px;display:flex;flex-direction:column;gap:9px;flex:1}.bd h3{font-size:1.1rem}.bd p{margin:0;font-size:.9rem;color:var(--mut);flex:1}.bd small{color:var(--mut)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tag{padding:3px 10px;border-radius:20px;font-size:.78rem;font-weight:700}.fr{background:#12b88622;color:var(--free)}.old{color:var(--mut);text-decoration:line-through;font-size:.85rem;margin-left:6px}
+.bar{height:9px;border-radius:10px;background:#8883;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#20c997,#7ff0c8);transition:width .4s}
+.panel{background:#ffffff14;border:1px solid var(--line);border-radius:22px;padding:28px;backdrop-filter:blur(10px);max-width:560px;margin:0 auto}.panel.wide{max-width:780px}.panel.lt{background:var(--card);color:var(--ink)}.lt h1{color:var(--ink)}
+label{display:block;font-weight:600;font-size:.9rem;margin:14px 0 5px}
+input,select{width:100%;padding:12px 14px;background:#ffffff12;border:1px solid var(--line);border-radius:10px;color:#fff;font:inherit}
+input:focus,select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px #7c5cff55}
+.lt input,.lt label{color:var(--ink)}.lt input{background:#8881;border-color:#8885}
+input::placeholder{color:#ffffff80}.lt input::placeholder{color:#8a88a8}select option{color:#111}
+.err{color:#ff9aa8;font-size:.85rem;min-height:1.2em;margin-top:5px}.lt .err{color:#d6336c}
+.msg{padding:12px 16px;border-radius:12px;background:#ffffff14;border:1px solid var(--line);margin:12px 0}.msg.warn{background:#ffb84d22;border-color:#ffb84d88}
+.pay{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:14px;border:2px solid var(--line);margin:10px 0;cursor:pointer}.pay:has(input:checked){border-color:var(--accent);background:#7c5cff22}
+.pay input{width:20px;height:20px;padding:0;accent-color:#7c5cff}.pay .n{font-weight:700;flex:1}.pay i{font-style:normal;font-weight:700;border-radius:50%;width:32px;height:32px;display:grid;place-items:center}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}.card2{background:#ffffff14;border:1px solid var(--line);border-radius:16px;padding:18px}
+.learn{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start}
+.side{background:#ffffff0f;border:1px solid var(--line);border-radius:18px;padding:16px;position:sticky;top:76px}
+.les{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:0;color:#f3f1ff;font:inherit;padding:10px 8px;border-radius:10px;cursor:pointer}.les:hover{background:#ffffff14}.les.on{background:#7c5cff44;font-weight:700}
+.chk{width:20px;height:20px;border-radius:50%;border:2px solid #fff8;flex:none;display:grid;place-items:center;font-size:.7rem}.les.done .chk{background:var(--ok);border-color:var(--ok);color:#042}
+.content{background:var(--card);color:var(--ink);border-radius:18px;padding:28px;line-height:1.7}.content small{color:var(--mut)}
+pre{background:#0b0a1c;color:#e8e1ff;padding:16px;border-radius:12px;overflow-x:auto;font:.88rem/1.55 ui-monospace,Menlo,Consolas,monospace}
+.tl{display:block;font:500 .62rem "DM Sans";letter-spacing:.4px;color:#a8a4c9;margin-top:-4px}.prac{background:#12b88618;border-left:4px solid var(--free);border-radius:10px;padding:12px 16px;margin:16px 0}.quiz{background:#7c5cff14;border:1px solid #7c5cff55;border-radius:12px;padding:14px 16px;margin:16px 0}.quiz label{display:flex;gap:8px;align-items:center;margin:6px 0;font-weight:500;cursor:pointer}.quiz input{width:auto}.qm{min-height:1.3em;font-weight:700;margin-top:6px}.cert{background:#fff;color:#2a1a44;border:8px double #7c5cff;padding:40px;text-align:center;border-radius:6px;max-width:720px;margin:0 auto}
+table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:10px 6px;border-bottom:1px solid var(--line)}
+.nt{display:flex;gap:12px;padding:14px;border-radius:14px;background:#ffffff12;margin:10px 0}.nt.un{border-left:4px solid #ff4d6d}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:#fff;color:#16142b;font-weight:600;padding:12px 22px;border-radius:30px;z-index:9;box-shadow:0 6px 24px #0008}
+footer{text-align:center;padding:24px;font-size:.85rem;color:#a8a4c9;border-top:1px solid var(--line)}footer a{color:#d9d5ff}
+.mb{display:none;background:#ffffff1a;border:1px solid var(--line);color:#fff;font-size:1.3rem;line-height:1;border-radius:10px;padding:8px 14px;cursor:pointer}
+@media(min-width:1400px){main{max-width:1280px}}
+@media(max-width:820px){.mb{display:block}nav{display:none;width:100%;flex-direction:column;align-items:stretch;gap:4px;padding:8px 0 4px}nav.open{display:flex}nav a:not(.btn){padding:13px 14px;font-size:1rem}nav .btn{text-align:center;padding:13px}main{padding:20px 4vw 60px}.panel{padding:20px}.btn{padding:12px 20px}.row{flex-wrap:wrap}.tl{display:none}input,select{font-size:16px}.content{padding:18px}.hero2{padding-top:0}.grid{grid-template-columns:1fr}.stat{flex:1 1 40%}.big{letter-spacing:-1px}.term pre{font-size:.8rem}}
+@media(max-width:820px){.hero2,.two,.learn{grid-template-columns:1fr}.side{position:static}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{header,footer,.np{display:none!important}body{background:#fff}}
+</style></head><body>
+<header><a class="logo" href="#/">SDC<span style="color:#7ff0c8">.</span> 🎓<small class="tl">Skills Development Courses</small></a><button class="mb" id="mb" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button><nav id="nav" aria-label="Main"></nav></header>
+<main id="app"></main>
+<footer>© SDC · Skills Development Courses · Free trials last 7 days · <a href="#/contact" style="color:#fff">Contact</a> · <a href="#/help" style="color:#fff">Help</a></footer>
+<script>
+const SUPPORT="support@sdc.example",UPI_ID="navineshnavinesh50@oksbi",PAYEE="Navinesh";
+// Lessons: [title, explanation, code]
+const C=[
+{id:"python",n:"Python",c:"#3776ab",s:"Py",p:1499,d:"Beginner-friendly language for scripting, data and automation.",L:[
+["Hello, Python","Python runs line by line. print() shows output. Save as hello.py and run python hello.py.","print('Hello, SDC!')"],
+["Variables & data types","Variables store values: int, float, str, bool. No type declaration needed.","age = 18\nname = 'Asha'\nprice = 9.5\nprint(type(age), name, price)"],
+["Conditions & loops","if/elif/else choose a path; for and while repeat work. Indentation defines blocks.","for i in range(1, 4):\n    if i % 2 == 0:\n        print(i, 'even')\n    else:\n        print(i, 'odd')"],
+["Functions & collections","Functions package reusable logic. Lists, dicts and sets hold groups of values.","def total(items):\n    return sum(items)\nprint(total([10, 20, 30]))\nuser = {'name': 'Ravi', 'age': 20}"],
+["Files, errors & mini project","Use with open() for files and try/except for errors. Combine everything into a small to-do app.","try:\n    with open('todo.txt') as f:\n        print(f.read())\nexcept FileNotFoundError:\n    print('No tasks yet')"]]},
+{id:"java",n:"Java",c:"#c4551a",s:"Jv",p:1799,d:"Object-oriented language that runs anywhere on the JVM.",L:[
+["Program structure","Every Java program lives in a class with a main method. javac compiles; java runs on the JVM.","public class Main {\n  public static void main(String[] a) {\n    System.out.println(\"Hello, SDC!\");\n  }\n}"],
+["Types & operators","Java is statically typed: int, double, boolean, String. Declare the type first.","int age = 18;\ndouble price = 9.5;\nString name = \"Asha\";\nSystem.out.println(name + age);"],
+["Control flow","if/else, switch, for, while and enhanced for-loops control execution.","for (int i = 1; i <= 3; i++) {\n  System.out.println(i % 2 == 0 ? \"even\" : \"odd\");\n}"],
+["Classes & objects (OOP)","Classes define state and behaviour. Learn encapsulation, inheritance and polymorphism.","class Student {\n  String name;\n  Student(String n){ name = n; }\n  void hi(){ System.out.println(\"Hi \" + name); }\n}\nnew Student(\"Ravi\").hi();"],
+["Collections & exceptions","ArrayList and HashMap store data; try/catch handles runtime errors.","List<Integer> xs = new ArrayList<>();\nxs.add(5);\ntry { int z = 1/0; }\ncatch (ArithmeticException e) { System.out.println(\"Oops\"); }"]]},
+{id:"html",n:"HTML",c:"#e44d26",s:"5",p:799,d:"The markup language that structures web pages.",L:[
+["Page skeleton","HTML uses tags. Every page has doctype, html, head and body.","<!DOCTYPE html>\n<html>\n <head><title>My page</title></head>\n <body><h1>Hello</h1></body>\n</html>"],
+["Text, links & images","Headings h1-h6, p, a for links, img for pictures (always add alt text).","<a href=\"https://example.com\">Visit</a>\n<img src=\"cat.jpg\" alt=\"A cat\">"],
+["Lists & tables","ul/ol/li make lists; table, tr, th, td make tables.","<ul><li>HTML</li><li>CSS</li></ul>"],
+["Forms","form, input, select and button collect user data. Use label for accessibility.","<form>\n <label>Email <input type=\"email\" required></label>\n <button>Send</button>\n</form>"],
+["Semantic layout","Use header, nav, main, section, footer so browsers and screen readers understand your page.","<header>…</header>\n<main><section>…</section></main>\n<footer>…</footer>"]]},
+{id:"c",n:"C",c:"#1d5ea8",s:"C",p:1299,d:"Foundational language with speed and low-level memory access.",L:[
+["First C program","C is compiled. #include brings libraries; main is the entry point.","#include <stdio.h>\nint main(){\n  printf(\"Hello, SDC!\\n\");\n  return 0;\n}"],
+["Variables & input","Types: int, float, char. scanf reads input using format specifiers.","int n;\nscanf(\"%d\", &n);\nprintf(\"%d\\n\", n * 2);"],
+["Loops & functions","for, while, do-while and functions break programs into parts.","int sq(int x){ return x*x; }\nfor(int i=1;i<=3;i++) printf(\"%d \", sq(i));"],
+["Arrays & strings","Arrays hold same-type values; strings are char arrays ending in '\\0'.","int a[3] = {1,2,3};\nchar s[] = \"SDC\";"],
+["Pointers & memory","A pointer stores an address. malloc/free manage heap memory manually.","int x = 5;\nint *p = &x;\n*p = 10;\nint *arr = malloc(3*sizeof(int));\nfree(arr);"]]},
+{id:"cpp",n:"C++",c:"#444",s:"C++",p:1599,d:"High-performance language for system and software development.",L:[
+["Getting started","C++ extends C. Use iostream for input/output and the std namespace.","#include <iostream>\nint main(){ std::cout << \"Hello, SDC!\"; }"],
+["Variables, control flow","auto, references and range-based for make code concise.","for (int i : {1,2,3}) std::cout << i;"],
+["Classes & OOP","Constructors, inheritance, virtual functions and operator overloading.","class Dog {\npublic:\n  virtual void speak(){ std::cout << \"Woof\"; }\n};"],
+["STL containers","vector, map, set and algorithms like sort save time.","std::vector<int> v{3,1,2};\nstd::sort(v.begin(), v.end());"],
+["Memory & smart pointers","Use unique_ptr and shared_ptr instead of raw new/delete (RAII).","auto p = std::make_unique<int>(42);"]]},
+{id:"js",n:"JavaScript",c:"#b99a00",s:"JS",p:1399,d:"Adds interactivity to the web.",L:[
+["Basics","Run JS in the browser console or a script tag. Use let and const.","const name = 'Asha';\nconsole.log(`Hello, ${name}`);"],
+["Functions & arrays","Arrow functions plus map, filter and reduce handle lists elegantly.","const sq = x => x * x;\n[1,2,3].map(sq); // [1,4,9]"],
+["The DOM","Select elements and change them from code.","document.querySelector('h1').textContent = 'Hi!';"],
+["Events","Respond to clicks, input and form submits.","btn.addEventListener('click', () => alert('Clicked'));"],
+["Async & fetch","Promises and async/await load data without freezing the page.","const r = await fetch('/api/items');\nconst data = await r.json();"]]},
+{id:"sql",n:"SQL",c:"#1f2a44",s:"SQL",p:999,d:"Standard language to manage and query relational databases.",L:[
+["Tables & SELECT","Data lives in tables of rows and columns. SELECT reads it.","SELECT name, age FROM students;"],
+["Filtering & sorting","WHERE filters, ORDER BY sorts, LIMIT trims.","SELECT * FROM students\nWHERE age > 18\nORDER BY name LIMIT 10;"],
+["INSERT, UPDATE, DELETE","Change data safely—always use WHERE with UPDATE/DELETE.","INSERT INTO students(name,age) VALUES('Ravi',20);\nUPDATE students SET age=21 WHERE name='Ravi';"],
+["Joins","Combine related tables using keys.","SELECT s.name, c.title\nFROM students s\nJOIN enrol e ON e.sid = s.id\nJOIN courses c ON c.id = e.cid;"],
+["Aggregates & design","COUNT, SUM, AVG with GROUP BY; normalise tables with primary and foreign keys.","SELECT course, COUNT(*)\nFROM enrol GROUP BY course;"]]},
+{id:"mongo",n:"MongoDB",c:"#12794a",s:"DB",p:1199,d:"NoSQL database storing flexible JSON-like documents.",L:[
+["Documents & collections","Data is stored as BSON documents in collections instead of rows in tables.","{ name: 'Asha', age: 19, skills: ['js','sql'] }"],
+["Insert & find","insertOne/insertMany add data; find reads it with filters.","db.users.insertOne({name:'Ravi', age:20})\ndb.users.find({age:{$gt:18}})"],
+["Update & delete","Use $set, $inc and deleteOne.","db.users.updateOne({name:'Ravi'},{$set:{age:21}})\ndb.users.deleteOne({name:'Ravi'})"],
+["Indexes & aggregation","Indexes speed queries; pipelines group and transform data.","db.users.createIndex({name:1})\ndb.users.aggregate([{$group:{_id:'$age',n:{$sum:1}}}])"],
+["Schema design","Embed related data you read together; reference data that grows large.","{ order: 1, items: [{sku:'A', qty:2}] }"]]},
+{id:"node",n:"Node.js",c:"#3d7a2a",s:"JS",p:1499,d:"Run JavaScript on the server side.",L:[
+["Install & first script","Node runs JavaScript outside the browser. Run with node app.js.","console.log('Hello from Node');"],
+["Modules & npm","Split code with require/import and install packages with npm.","const fs = require('fs');\n// npm install express"],
+["Files & async","Use promises with fs/promises for non-blocking I/O.","const t = await fs.promises.readFile('a.txt','utf8');"],
+["Express server","Express handles routes and HTTP requests.","const app = require('express')();\napp.get('/', (q,r) => r.send('Hi'));\napp.listen(3000);"],
+["REST API & database","Build JSON endpoints, validate input and connect to MongoDB.","app.get('/api/users', async (q,r) => {\n  r.json(await db.users.find().toArray());\n});"]]}];
+const NEW=[
+{id:"css",n:"CSS",c:"#2965f1",s:"{ }",d:"Style web pages with colours, layouts, Flexbox and Grid.",L:[
+["Selectors & the cascade","CSS rules pair a selector with declarations. Specificity and order decide which rule wins.","h1 { color: #7c5cff; }\n.card p { margin: 0; }"],
+["Box model & units","Every element is a box: content, padding, border, margin. Use rem, %, and vw for flexible sizes.","* { box-sizing: border-box; }\n.box { padding: 1rem; border: 1px solid #ccc; }"],
+["Flexbox","Flexbox lays items in a row or column and aligns them easily.",".row { display: flex; gap: 12px; justify-content: space-between; }"],
+["Grid","CSS Grid builds two-dimensional layouts with rows and columns.",".grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }"],
+["Responsive design","Media queries adapt the layout to any screen size. Design mobile-first.","@media (max-width: 700px) {\n  .grid { grid-template-columns: 1fr; }\n}"]]},
+{id:"git",n:"Git & GitHub",c:"#f05032",s:"Git",d:"Track changes, work in branches and collaborate like a professional.",L:[
+["Why version control","Git saves snapshots of your project so you can go back and collaborate safely.","git init\ngit status"],
+["Commit your work","Stage files with add, then save a snapshot with commit and a clear message.","git add .\ngit commit -m \"Add login page\""],
+["Branches & merging","Branches let you build features in isolation, then merge them back.","git switch -c feature/login\ngit switch main\ngit merge feature/login"],
+["GitHub & remotes","A remote is a copy of your repo online. Push to share and pull to update.","git remote add origin <url>\ngit push -u origin main\ngit pull"],
+["Pull requests & conflicts","Pull requests propose changes for review. Fix merge conflicts by editing the marked lines, then commit.","<<<<<<< HEAD\nyour change\n=======\ntheir change\n>>>>>>> feature"]]},
+{id:"react",n:"React",c:"#0b7285",s:"Re",d:"Build modern interactive user interfaces with components.",L:[
+["Components & JSX","A component is a function that returns UI written in JSX.","function Hello({name}) {\n  return <h1>Hello, {name}</h1>;\n}"],
+["Props & state","Props pass data in; state stores data that changes over time.","const [n, setN] = useState(0);\n<button onClick={() => setN(n + 1)}>{n}</button>"],
+["Lists & conditional UI","Render arrays with map and show UI with && or ternaries.","{items.map(i => <li key={i.id}>{i.name}</li>)}"],
+["Effects & data","useEffect runs side effects such as fetching data.","useEffect(() => {\n  fetch('/api/items').then(r => r.json()).then(setItems);\n}, []);"],
+["Forms & project","Controlled inputs keep form values in state. Combine everything into a small app.","<input value={text} onChange={e => setText(e.target.value)} />"]]},
+{id:"ts",n:"TypeScript",c:"#3178c6",s:"TS",d:"JavaScript with types for safer, easier-to-maintain code.",L:[
+["Why types","TypeScript catches mistakes while you type, before the code runs.","let age: number = 18;\nage = 'x'; // error"],
+["Basic & union types","string, number, boolean, arrays and unions describe your data.","let id: string | number;\nconst tags: string[] = ['a','b'];"],
+["Interfaces","Interfaces describe the shape of objects.","interface User { name: string; age?: number }\nconst u: User = { name: 'Asha' };"],
+["Functions & generics","Type parameters and return values; generics make code reusable.","function first<T>(a: T[]): T { return a[0]; }"],
+["Using TS in projects","Configure tsconfig.json and compile with tsc.","npm i -D typescript\nnpx tsc --init\nnpx tsc"]]},
+{id:"dsa",n:"Data Structures",c:"#862e9c",s:"DS",d:"Arrays, stacks, queues, trees and algorithms for interviews.",L:[
+["Big-O basics","Big-O describes how running time grows with input size: O(1), O(n), O(n log n), O(n²).","for (i in 0..n) // O(n)"],
+["Arrays & searching","Arrays give fast index access. Binary search finds items in sorted data in O(log n).","lo=0; hi=n-1\nwhile lo<=hi: mid=(lo+hi)//2"],
+["Stacks & queues","Stack is last-in-first-out; queue is first-in-first-out.","stack.push(x); stack.pop();\nqueue.enqueue(x); queue.dequeue();"],
+["Linked lists & trees","Nodes link to other nodes. Binary trees power fast search and sorted data.","class Node { val; left; right }"],
+["Sorting & graphs","Learn merge sort and quick sort, then BFS and DFS to traverse graphs.","function mergeSort(a){ /* split, sort, merge */ }"]]}];
+const PR={html:199,css:199,git:149,sql:299,python:499,java:599,c:399,cpp:499,js:449,mongo:399,node:549,react:599,ts:449,dsa:699},CAT={html:"Web",css:"Web",js:"Web",react:"Web",node:"Web",ts:"Web",git:"Tools",sql:"Data",mongo:"Data",python:"Programming",java:"Programming",c:"Programming",cpp:"Programming",dsa:"Programming"},TRIAL=7;
+C.push(...NEW);
+const RICH={
+python:[
+[`Welcome to Python`,`Python is one of the most popular languages in the world. It is used for websites, data analysis, automation, AI and more. Its syntax is close to plain English, which makes it ideal for beginners.
+
+Install Python from python.org, then write code in any editor (IDLE or VS Code). A Python program is a text file ending in .py. Python reads it line by line. print() displays text on the screen. Lines starting with # are comments and are ignored.`,`# my first program
+print('Hello, SDC!')
+print('I am learning Python')`,`Change the text to print your own name and your favourite hobby on two lines.`,[`Which function shows output on the screen?`,[`show()`,`print()`,`echo()`],1]],
+[`Variables and data types`,`A variable is a named box that stores a value. You create one by assigning with =. Python decides the type for you.
+
+The main types are int (whole numbers), float (decimals), str (text in quotes) and bool (True or False). Use type() to check a type and int(), float(), str() to convert. Choose clear names like student_name, written in lowercase with underscores.`,`age = 18
+price = 99.5
+name = 'Asha'
+is_student = True
+print(name, age, price, is_student)
+print(type(price))
+print(int('25') + 5)`,`Create variables for your name, age and city, then print one sentence using all three.`,[`What is the type of 3.14?`,[`int`,`float`,`str`],1]],
+[`Operators and user input`,`Operators do work on values: + - * / for maths, // for whole-number division, % for the remainder and ** for powers. Comparison operators (== != < > <= >=) give True or False. Combine conditions with and, or, not.
+
+input() reads text typed by the user and always returns a string, so convert it with int() or float() before doing maths. f-strings (f'...{value}...') insert values into text neatly.`,`a = int(input('First number: '))
+b = int(input('Second number: '))
+print(f'Sum = {a + b}')
+print(f'Remainder = {a % b}')
+print(a > b and b > 0)`,`Write a program that asks for a price and a quantity and prints the total cost.`,[`What does 7 % 3 give?`,[`2`,`1`,`2.33`],1]],
+[`Making decisions with if`,`Programs choose what to do using if, elif and else. Python checks the conditions from top to bottom and runs only the first block that is True.
+
+Indentation (4 spaces) is part of the syntax: it shows which lines belong to the block. Forgetting the colon or the indentation is the most common beginner error.`,`marks = int(input('Marks: '))
+if marks >= 90:
+    print('Grade A')
+elif marks >= 60:
+    print('Grade B')
+else:
+    print('Keep practising')`,`Ask for a person's age and print whether they can vote (18 or above).`,[`Which keyword handles 'otherwise'?`,[`else`,`then`,`other`],0]],
+[`Loops: repeating work`,`A for loop repeats over a sequence such as range(). A while loop repeats as long as a condition is True. Use break to stop early and continue to skip to the next round.
+
+range(5) gives 0 to 4. range(1, 6) gives 1 to 5. range(0, 10, 2) steps by 2. Make sure a while loop changes something, or it will run forever.`,`for i in range(1, 6):
+    print(i, 'x 3 =', i * 3)
+
+count = 3
+while count > 0:
+    print(count)
+    count -= 1
+print('Go!')`,`Print the multiplication table of any number the user enters, from 1 to 10.`,[`range(1, 4) produces which numbers?`,[`1 2 3 4`,`1 2 3`,`0 1 2 3`],1]],
+[`Functions: reusable code`,`A function is a named block of code you can run many times. Define it with def, give it parameters, and send back a result with return. Functions make programs shorter, clearer and easier to test.
+
+Variables created inside a function are local to it. Give parameters default values when it helps, e.g. def greet(name='friend').`,`def area(width, height=1):
+    return width * height
+
+print(area(4, 5))
+print(area(7))
+
+def is_even(n):
+    return n % 2 == 0
+print(is_even(10))`,`Write a function celsius_to_f(c) that returns Fahrenheit (c * 9/5 + 32).`,[`Which keyword sends a value back?`,[`give`,`return`,`yield`],1]],
+[`Lists, dictionaries and tuples`,`A list holds ordered, changeable items: [10, 20, 30]. Use index numbers (starting at 0), append(), remove(), len(), sorting and slicing. A dictionary stores key-value pairs, perfect for records like a student. Tuples are ordered but cannot be changed. Sets hold unique values.
+
+Loop over a list with for item in items. Loop over a dictionary with items() to get both keys and values.`,`marks = [78, 91, 66]
+marks.append(85)
+print(len(marks), max(marks), sum(marks) / len(marks))
+
+student = {'name': 'Ravi', 'age': 20}
+student['city'] = 'Salem'
+for key, value in student.items():
+    print(key, '->', value)`,`Store five marks in a list and print the highest, the lowest and the average.`,[`What is the first index of a list?`,[`1`,`0`,`-1`],1]],
+[`Files, errors and a mini project`,`Use with open('file.txt', 'w') to write and 'r' to read; the with block closes the file for you. Wrap risky code in try/except so the program shows a friendly message instead of crashing.
+
+Now combine everything into a to-do app: store tasks in a list, show a menu in a while loop, add and list tasks, and save them to a file. Finishing a project like this proves you can use variables, loops, functions, lists, files and error handling together.`,`tasks = []
+while True:
+    cmd = input('add / list / quit: ')
+    if cmd == 'add':
+        tasks.append(input('Task: '))
+    elif cmd == 'list':
+        for n, t in enumerate(tasks, 1):
+            print(n, t)
+    elif cmd == 'quit':
+        break
+with open('todo.txt', 'w') as f:
+    f.write('\\n'.join(tasks))`,`Extend the app: add a 'done' command that removes a task by number, and wrap input conversion in try/except.`,[`Which block safely handles errors?`,[`try / except`,`if / else`,`for / while`],0]]],
+html:[
+[`What is HTML?`,`HTML (HyperText Markup Language) describes the structure of a web page. It uses tags such as <h1> or <p> that wrap content. Browsers read the tags and display the page. HTML is a markup language, not a programming language.
+
+Create a file named index.html, write the basic skeleton, save it and open it in a browser. The <head> holds information about the page (title, character set). The <body> holds everything visitors see.`,`<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <title>My first page</title>
+</head>
+<body>
+  <h1>Hello, SDC!</h1>
+  <p>This is my first web page.</p>
+</body>
+</html>`,`Create index.html with your name as the heading and a paragraph about yourself.`,[`Where does visible page content go?`,[`<head>`,`<body>`,`<title>`],1]],
+[`Text, headings and links`,`Headings go from <h1> (most important) to <h6>. Use <p> for paragraphs, <strong> for important text and <em> for emphasis. <br> breaks a line.
+
+Links use the <a> tag with the href attribute. An absolute link points to another site; a relative link points to a file in your own project. Add target='_blank' to open a new tab.`,`<h1>My Blog</h1>
+<p>I love <strong>coding</strong> and <em>music</em>.</p>
+<a href='https://www.wikipedia.org'>Visit Wikipedia</a>
+<a href='about.html'>About me</a>`,`Make a page with one h1, two h2 sections and a link to another page of yours.`,[`Which attribute holds a link address?`,[`src`,`href`,`link`],1]],
+[`Images and media`,`The <img> tag shows pictures. src is the file path and alt is a text description used by screen readers and shown if the image fails to load; always write it. Set width and height to avoid layout jumps.
+
+Use <video controls> and <audio controls> for media, and <iframe> to embed other pages. Prefer modern formats like WebP and keep files small so pages load fast.`,`<img src='images/cat.jpg' alt='A cat sleeping on a sofa' width='300'>
+<video controls width='320'>
+  <source src='intro.mp4' type='video/mp4'>
+</video>`,`Add a photo with proper alt text to your page.`,[`Why is alt text important?`,[`It makes images bigger`,`It helps accessibility and fallback`,`It speeds up the server`],1]],
+[`Lists and tables`,`Use <ul> for bullet lists, <ol> for numbered lists and <li> for each item. Tables display data in rows and columns: <table>, <tr> (row), <th> (header cell) and <td> (data cell).
+
+Use tables only for real tabular data, never for page layout. <thead>, <tbody> and <caption> make tables easier to read and more accessible.`,`<ol>
+  <li>Learn HTML</li>
+  <li>Learn CSS</li>
+</ol>
+<table>
+  <tr><th>Course</th><th>Lessons</th></tr>
+  <tr><td>HTML</td><td>8</td></tr>
+</table>`,`Create a weekly timetable as a table with a header row.`,[`Which tag is a table header cell?`,[`<td>`,`<th>`,`<tr>`],1]],
+[`Forms: collecting user data`,`Forms send information from visitors. <form> wraps the fields. <input> has many types: text, email, password, number, date, checkbox, radio. Use <select>, <textarea> and <button> too.
+
+Always connect each field to a <label>. Add required, min, max and pattern for built-in validation. Remember: browser checks help users, but real validation must also happen on the server.`,`<form action='/register' method='post'>
+  <label>Name <input type='text' name='name' required></label>
+  <label>Email <input type='email' name='email' required></label>
+  <label>Course
+    <select name='course'><option>HTML</option><option>CSS</option></select>
+  </label>
+  <button type='submit'>Register</button>
+</form>`,`Build a registration form with name, email, age (min 16) and a submit button.`,[`Which input type validates an email format?`,[`text`,`email`,`mail`],1]],
+[`Semantic layout`,`Semantic tags describe what content is, not just how it looks: <header>, <nav>, <main>, <section>, <article>, <aside> and <footer>. They help search engines, screen readers and other developers.
+
+Use <div> and <span> only when no semantic tag fits. A page normally has one <main> and one <h1>.`,`<header><h1>SDC Blog</h1>
+  <nav><a href='#'>Home</a> <a href='#'>Posts</a></nav>
+</header>
+<main>
+  <article><h2>Post title</h2><p>Text...</p></article>
+</main>
+<footer>© SDC</footer>`,`Rebuild your page using header, nav, main and footer.`,[`Which tag holds the main navigation links?`,[`<nav>`,`<aside>`,`<footer>`],0]],
+[`Accessibility and SEO`,`Accessible pages work for everyone, including people using screen readers or only a keyboard. Use semantic tags, alt text, labels, a logical heading order and enough colour contrast.
+
+For search engines, write a clear <title>, add <meta name='description'>, set lang on <html> and add the viewport meta tag so the page works on phones.`,`<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Learn web skills with SDC'>
+<button aria-label='Close menu'>X</button>`,`Add a description and viewport meta tag to all your pages.`,[`Which tag makes a page mobile friendly?`,[`viewport meta`,`<mobile>`,`<phone>`],0]],
+[`Final project: a personal portfolio`,`Combine everything: a home page, an about page, a projects table, a contact form and consistent navigation. Use semantic layout, descriptive alt text, labels and a clear heading structure.
+
+Test the page by tabbing through it with the keyboard, resizing the window and validating it at validator.w3.org. Publish it for free with GitHub Pages or Netlify and share the link. Next step: learn CSS to style it.`,`<!-- folder structure -->
+portfolio/
+  index.html
+  about.html
+  projects.html
+  contact.html
+  images/`,`Finish all four pages, link them with a nav bar, then publish your site online.`,[`What should you learn next to style your pages?`,[`CSS`,`SQL`,`Git only`],0]]]};
+Object.assign(RICH,{
+css:[
+[`What CSS does`,`CSS (Cascading Style Sheets) controls how HTML looks: colours, fonts, spacing and layout. HTML is the structure; CSS is the design. Keeping them separate makes sites easier to change.
+
+Link a stylesheet in the head with the link tag. A rule has a selector (what to style) and declarations (property: value;) inside braces. The word cascading means that when rules conflict, order and specificity decide the winner.`,`<link rel='stylesheet' href='style.css'>
+
+/* style.css */
+body { font-family: Arial, sans-serif; background: #f5f3ff; }
+h1 { color: #5b3df5; }`,`Link a style.css file to your page and change the background colour and the heading colour.`,[`What does CSS control?`,[`Page structure`,`Page appearance`,`Database data`],1]],
+[`Selectors and specificity`,`Selectors choose elements: p (type), .card (class), #logo (id), a:hover (state) and nav a (descendant). Use classes for most styling because they are reusable.
+
+When two rules target the same element, the more specific selector wins: id beats class, class beats type. If specificity is equal, the later rule wins. Avoid !important; fix the selector instead.`,`p { color: #333; }
+.note { color: crimson; }
+#intro { font-size: 1.2rem; }
+a:hover { text-decoration: underline; }
+.menu a { padding: 8px; }`,`Give three paragraphs a class named note and style only those.`,[`Which selector targets a class named box?`,[`#box`,`.box`,`box`],1]],
+[`Colours and typography`,`Colours can be names, hex (#7c5cff), rgb() or hsl(). Use contrast: dark text on light backgrounds or the reverse. Typography sets the personality: font-family, font-size, font-weight, line-height and letter-spacing.
+
+Use rem units so text scales with user settings, and a line-height around 1.5 for body text. Load Google Fonts with a link tag and always add a fallback such as sans-serif.`,`body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1d1b33;
+}
+h1 { font-weight: 800; letter-spacing: -0.5px; }`,`Choose two fonts and a three-colour palette for your page and apply them.`,[`Which unit scales with the user's font setting?`,[`px`,`rem`,`pt`],1]],
+[`The box model`,`Every element is a rectangle with content, padding (inside space), border and margin (outside space). Width and height by default describe only the content, which makes sizing confusing.
+
+Add box-sizing: border-box to everything so padding and border are included in the width. Margins between vertical elements can collapse into one. Use border-radius for rounded corners and box-shadow for depth.`,`* { box-sizing: border-box; }
+.card {
+  width: 300px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.1);
+}`,`Build a card with padding, a border, rounded corners and a shadow, centred on the page.`,[`Which property is the space inside the border?`,[`margin`,`padding`,`gap`],1]],
+[`Flexbox layouts`,`Flexbox arranges items along one axis. Set display: flex on the parent. justify-content spaces items along the main axis; align-items aligns them on the cross axis; gap adds space; flex-wrap lets items wrap; flex: 1 makes an item grow.
+
+Use flex-direction: column for vertical layouts. Flexbox is perfect for navigation bars, button groups, cards in a row and centring content.`,`.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.center { display: flex; justify-content: center; align-items: center; min-height: 100vh; }`,`Create a navigation bar with a logo on the left and three links on the right using flexbox.`,[`Which property turns on flexbox?`,[`display: flex`,`position: flex`,`flex: on`],0]],
+[`CSS Grid`,`Grid handles two-dimensional layouts: rows and columns together. grid-template-columns defines columns; the fr unit shares free space; repeat() avoids repetition; gap sets spacing; grid-column: span 2 stretches an item.
+
+repeat(auto-fill, minmax(250px, 1fr)) creates a responsive grid with no media queries. Use Flexbox for one-direction components and Grid for page layouts.`,`.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.wide { grid-column: span 2; }`,`Make a gallery of six boxes that fills the screen width and reflows on small screens.`,[`What does 1fr mean?`,[`1 pixel`,`One share of free space`,`First row`],1]],
+[`Responsive design`,`Responsive sites look good on phones, tablets and desktops. Start mobile-first: write base styles for small screens, then add media queries for larger ones. Always include the viewport meta tag in your HTML.
+
+Use flexible units (%, rem, vw), max-width: 100% on images, and clamp() for fluid text. Test by resizing the browser or using the device toolbar in Chrome DevTools.`,`img { max-width: 100%; height: auto; }
+.layout { display: grid; gap: 16px; }
+@media (min-width: 800px) {
+  .layout { grid-template-columns: 1fr 2fr; }
+}
+h1 { font-size: clamp(1.6rem, 4vw, 3rem); }`,`Make a two-column layout that becomes one column on phones.`,[`What approach styles small screens first?`,[`Desktop-first`,`Mobile-first`,`Print-first`],1]],
+[`Transitions and final project`,`Transitions animate changes smoothly: transition: property duration easing. transform moves, scales or rotates without disturbing layout. Use animations sparingly and respect prefers-reduced-motion.
+
+Final project: style your HTML portfolio with a colour palette, typography scale, a flexbox navigation, a grid of project cards, hover effects and a mobile layout. Check it on at least two screen sizes and validate your CSS.`,`.btn { background: #5b3df5; color: #fff; transition: transform .2s; }
+.btn:hover { transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none; }
+}`,`Complete your portfolio design and publish it with GitHub Pages or Netlify.`,[`Which property makes smooth hover changes?`,[`transition`,`display`,`float`],0]]],
+git:[
+[`What is version control?`,`Version control records every change to your files so you can see history, undo mistakes and work with others without overwriting each other. Git is the most widely used system and works offline on your computer.
+
+Install Git from git-scm.com, then tell it who you are. Your name and email appear in every commit you make.`,`git --version
+git config --global user.name 'Your Name'
+git config --global user.email 'you@example.com'`,`Install Git and set your name and email. Run git --version to confirm.`,[`What does Git track?`,[`Changes to files over time`,`Internet speed`,`Passwords`],0]],
+[`Your first repository`,`A repository (repo) is a project folder that Git tracks. git init creates it. Changes pass through three areas: working directory (your files), staging area (changes you chose) and the repository (saved commits).
+
+git status shows what changed. git add stages files. git commit saves a snapshot with a message. Write messages that explain why, in the present tense: Add login form.`,`mkdir my-site && cd my-site
+git init
+echo '<h1>Hi</h1>' > index.html
+git status
+git add index.html
+git commit -m 'Add home page'`,`Create a repo, add two files, and make two separate commits.`,[`Which command saves a snapshot?`,[`git save`,`git commit`,`git push`],1]],
+[`History, diffs and undoing`,`git log shows the commit history. git diff shows exactly what changed. git restore discards changes in a file; git restore --staged unstages it. git revert makes a new commit that undoes an older one without rewriting history.
+
+Be careful with git reset --hard because it permanently deletes uncommitted work. When unsure, create a branch first as a safety net.`,`git log --oneline
+git diff
+git restore index.html
+git restore --staged index.html
+git revert HEAD`,`Edit a file, view the diff, then undo your change with git restore.`,[`Which command shows the commit list?`,[`git log`,`git list`,`git show-all`],0]],
+[`Branches and merging`,`A branch is an independent line of work. The default branch is main. Create a branch for each feature or fix so unfinished work never breaks main. git switch moves between branches and git merge brings changes back.
+
+If the branches changed different lines, Git merges automatically. Delete merged branches to keep the project tidy.`,`git switch -c feature/navbar
+# edit files, then:
+git add .
+git commit -m 'Add navbar'
+git switch main
+git merge feature/navbar
+git branch -d feature/navbar`,`Create a branch, add a commit on it, merge it into main and delete the branch.`,[`Why use branches?`,[`To work safely without breaking main`,`To make files smaller`,`To speed up the internet`],0]],
+[`Merge conflicts`,`A conflict happens when two branches change the same lines. Git stops and marks the file with <<<<<<<, ======= and >>>>>>>. Nothing is broken; Git simply needs you to choose.
+
+Open the file, keep the correct lines, delete the markers, then git add the file and git commit. Small, frequent merges and good communication reduce conflicts.`,`<<<<<<< HEAD
+<h1>Welcome</h1>
+=======
+<h1>Hello</h1>
+>>>>>>> feature/title
+
+git add index.html
+git commit -m 'Resolve title conflict'`,`Create a conflict on purpose with two branches editing one line, then resolve it.`,[`After fixing a conflict, what do you do?`,[`git add and git commit`,`Delete the repo`,`Restart the computer`],0]],
+[`GitHub and remotes`,`GitHub hosts your repositories online for backup, sharing and teamwork. A remote is a link to the online copy, usually named origin. git push uploads commits; git pull downloads and merges; git clone copies a whole repo.
+
+Create an empty repo on GitHub, copy its URL, add it as origin and push. Use HTTPS with a personal access token or set up an SSH key for sign-in.`,`git remote add origin https://github.com/you/my-site.git
+git branch -M main
+git push -u origin main
+git pull
+git clone https://github.com/you/my-site.git`,`Create a GitHub account, push your repo and view it in the browser.`,[`Which command uploads commits to GitHub?`,[`git push`,`git pull`,`git init`],0]],
+[`Pull requests and teamwork`,`A pull request (PR) proposes merging your branch and lets teammates review, comment and approve. Typical flow: fork or branch, commit, push, open a PR, address feedback, merge.
+
+Keep PRs small and focused, write a clear description, and pull the latest main before you start. Protect main so nothing is merged without review.`,`git switch -c fix/typo
+git commit -am 'Fix typo in footer'
+git push -u origin fix/typo
+# then open a Pull Request on GitHub`,`Make a small change on a branch, push it and open a pull request on your own repo.`,[`What is a pull request?`,[`A request to review and merge your branch`,`A file download`,`A backup tool`],0]],
+[`.gitignore, tags and best practices`,`A .gitignore file lists files Git must not track: node_modules, .env secrets, build output and system files. Never commit passwords or API keys; if you do, rotate them immediately.
+
+Tags such as v1.0 mark releases. Best practices: commit often, write clear messages, branch per feature, pull before you push, and review your diff before committing. Final project: take a website from git init to a tagged v1.0 release on GitHub.`,`# .gitignore
+node_modules/
+.env
+.DS_Store
+
+git tag v1.0
+git push origin v1.0`,`Add a .gitignore, tag your project v1.0 and push the tag.`,[`Which file keeps secrets out of Git?`,[`.gitignore`,`README.md`,`index.html`],0]]],
+sql:[
+[`Databases and SELECT`,`A relational database stores data in tables made of rows (records) and columns (fields). SQL (Structured Query Language) is the standard language to read and change that data. Popular systems include MySQL, PostgreSQL, SQLite and SQL Server.
+
+SELECT chooses columns and FROM chooses the table. Use * for all columns. Statements end with a semicolon and keywords are not case-sensitive, but writing them in capitals is a common style.`,`SELECT * FROM students;
+SELECT name, city FROM students;
+SELECT DISTINCT city FROM students;`,`Run these queries in a free tool such as SQLite Online or DB Fiddle with a small students table.`,[`Which clause names the table?`,[`SELECT`,`FROM`,`WHERE`],1]],
+[`Filtering and sorting`,`WHERE filters rows using =, <>, >, <, BETWEEN, IN, LIKE and IS NULL. Combine with AND, OR and NOT. LIKE uses % as a wildcard. ORDER BY sorts (ASC or DESC) and LIMIT restricts the number of rows.
+
+Remember that NULL means unknown: use IS NULL rather than = NULL.`,`SELECT name, marks FROM students
+WHERE marks >= 60 AND city IN ('Salem','Chennai')
+ORDER BY marks DESC
+LIMIT 5;
+SELECT * FROM students WHERE name LIKE 'A%';`,`Find students whose name starts with R and who scored between 50 and 90.`,[`Which keyword sorts results?`,[`SORT`,`ORDER BY`,`GROUP`],1]],
+[`INSERT, UPDATE and DELETE`,`INSERT adds rows, UPDATE changes existing rows and DELETE removes rows. Always add a WHERE clause to UPDATE and DELETE, or every row will change. Test with a SELECT using the same WHERE first.
+
+Use transactions (BEGIN, COMMIT, ROLLBACK) in real systems so a group of changes succeeds or fails together.`,`INSERT INTO students (name, city, marks) VALUES ('Ravi','Salem',82);
+UPDATE students SET marks = 90 WHERE name = 'Ravi';
+DELETE FROM students WHERE marks < 35;`,`Insert three students, raise one student's marks and delete one record.`,[`What happens to UPDATE without WHERE?`,[`Nothing`,`All rows change`,`An error only`],1]],
+[`Creating tables, types and keys`,`CREATE TABLE defines columns and data types such as INT, DECIMAL, VARCHAR, DATE and BOOLEAN. A PRIMARY KEY uniquely identifies each row. A FOREIGN KEY links to a key in another table, keeping data consistent. Constraints like NOT NULL, UNIQUE, CHECK and DEFAULT protect data quality.
+
+ALTER TABLE changes a table later and DROP TABLE deletes it permanently.`,`CREATE TABLE courses (
+  id INT PRIMARY KEY,
+  title VARCHAR(80) NOT NULL UNIQUE,
+  price DECIMAL(8,2) CHECK (price >= 0)
+);
+CREATE TABLE enrol (
+  student_id INT,
+  course_id INT REFERENCES courses(id)
+);`,`Design tables for students, courses and enrolments with proper keys.`,[`What uniquely identifies a row?`,[`Foreign key`,`Primary key`,`Index`],1]],
+[`Aggregates and GROUP BY`,`Aggregate functions summarise many rows into one value: COUNT, SUM, AVG, MIN and MAX. GROUP BY splits rows into groups and applies the function to each group. WHERE filters rows before grouping; HAVING filters groups afterwards.
+
+Use aliases (AS) to give results readable names.`,`SELECT city, COUNT(*) AS students, AVG(marks) AS avg_marks
+FROM students
+GROUP BY city
+HAVING COUNT(*) >= 2
+ORDER BY avg_marks DESC;`,`Show the number of students and highest mark in each city.`,[`Which clause filters groups?`,[`WHERE`,`HAVING`,`LIMIT`],1]],
+[`Joins`,`Joins combine rows from related tables using a matching key. INNER JOIN keeps only rows that match in both tables. LEFT JOIN keeps all rows from the left table and fills missing matches with NULL. Table aliases keep queries short.
+
+Joining three or more tables is common: students to enrolments to courses.`,`SELECT s.name, c.title
+FROM students s
+JOIN enrol e ON e.student_id = s.id
+JOIN courses c ON c.id = e.course_id;
+SELECT s.name, e.course_id
+FROM students s LEFT JOIN enrol e ON e.student_id = s.id;`,`List every course with the number of students enrolled, including courses with none.`,[`Which join keeps all rows from the left table?`,[`INNER JOIN`,`LEFT JOIN`,`CROSS JOIN`],1]],
+[`Subqueries, views and indexes`,`A subquery is a query inside another query, useful for comparisons such as above-average values. A view saves a query as a virtual table. An index speeds up searching on a column, but slows writes slightly and uses space, so index columns you filter or join on often.
+
+EXPLAIN shows how the database will run a query.`,`SELECT name FROM students
+WHERE marks > (SELECT AVG(marks) FROM students);
+CREATE VIEW top_students AS
+  SELECT * FROM students WHERE marks >= 80;
+CREATE INDEX idx_city ON students(city);`,`Find students scoring above the class average and create a view for them.`,[`What does an index do?`,[`Speeds up lookups`,`Deletes rows`,`Encrypts data`],0]],
+[`Design and final project`,`Normalisation avoids repeating data: put each fact in one place. First normal form: one value per cell. Second: every column depends on the whole key. Third: no column depends on a non-key column.
+
+Final project: build a small school database with students, courses, teachers and enrolments. Write queries for class lists, average marks per course and students with no enrolments. Add keys and an index, then explain your design.`,`SELECT c.title, COUNT(e.student_id) AS total
+FROM courses c
+LEFT JOIN enrol e ON e.course_id = c.id
+GROUP BY c.title
+ORDER BY total DESC;`,`Complete the school database and write five useful reports.`,[`What does normalisation reduce?`,[`Repeated data`,`Table names`,`Server speed`],0]]]});
+C.forEach(c=>{if(RICH[c.id])c.L=RICH[c.id]});
+C.forEach(c=>{c.p=PR[c.id];c.cat=CAT[c.id];c.free=["html","css","git","sql"].includes(c.id)});C.sort((a,b)=>b.free-a.free);let filt="All";
+const $=s=>document.querySelector(s),app=$("#app");
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+const S={get(k,d){try{return JSON.parse(localStorage.getItem("tnn_"+k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem("tnn_"+k,JSON.stringify(v))}catch(e){}}};
+let me=S.get("session",null),draft=null,next=null,last=null;
+const inr=n=>"₹"+n.toLocaleString("en-IN"),H=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))|0;return""+h};
+const go=p=>location.hash="#/"+p,cid=id=>C.find(c=>c.id===id);
+const orders=()=>S.get("orders",[]).filter(o=>o.email===me?.email),owns=id=>orders().some(o=>o.course===id&&(!o.exp||o.exp>Date.now())),trialUsed=id=>!!me&&orders().some(o=>o.course===id&&o.exp),daysLeft=id=>{const o=orders().find(x=>x.course===id&&x.exp&&x.exp>Date.now());return o?Math.max(1,Math.ceil((o.exp-Date.now())/864e5)):0};
+const prog=()=>S.get("prog_"+me.email,{});
+const pct=id=>{const d=(prog()[id]||[]).length;return Math.round(d/cid(id).L.length*100)};
+const notes=()=>S.get("notes",[]).filter(n=>n.email===me?.email);
+function toast(t){const e=document.createElement("div");e.className="toast";e.textContent=t;document.body.append(e);setTimeout(()=>e.remove(),2800)}
+function addNote(email,title,body){const n=S.get("notes",[]);n.unshift({email,title,body,date:Date.now(),read:false});S.set("notes",n)}
+function nav(r){$("#nav").classList.remove("open");$("#mb").setAttribute("aria-expanded","false");const un=me?notes().filter(n=>!n.read).length:0;
+ $("#nav").innerHTML=[["","Home"],["courses","Courses"],["about","About"],["contact","Contact"],["help","Help"]].map(([h,t])=>`<a href="#/${h}" class="${r===h?"on":""}">${t}</a>`).join("")+
+ (me?`<a href="#/dashboard" class="${r==="dashboard"?"on":""}">My Learning</a><a href="#/inbox" class="${r==="inbox"?"on":""}">Notifications${un?`<span class="dot">${un}</span>`:""}</a><a href="#/" id="out">Log out (${esc(me.name.split(" ")[0])})</a>`:`<a href="#/login" class="${r==="login"?"on":""}">Login</a><a class="btn sm pu" href="#/signup">Sign up</a>`);
+ const o=$("#out");if(o)o.onclick=()=>{me=null;S.set("session",null);toast("Logged out")}}
+const card=c=>{const pc=me?pct(c.id):0;let act;
+ if(me&&owns(c.id)){const d=daysLeft(c.id),paid=orders().some(o=>o.course===c.id&&!o.exp);act=`<div class="bar"><i style="width:${pc}%"></i></div><div class="row"><small>${pc}% complete${!paid&&d?` · ${d}d free left`:""}</small><a class="btn ok sm" href="#/learn/${c.id}">${pc?"Continue":"Start"}</a></div>`}
+ else if(c.free&&!trialUsed(c.id))act=`<div class="row"><span class="tag fr">FREE · ${TRIAL} days</span><a class="btn ok sm" href="#/free/${c.id}">Start free</a></div>`;
+ else if(c.free)act=`<small>Free access ended · progress saved</small><div class="row"><b>${inr(c.p)}</b><a class="btn pu sm" href="#/register/${c.id}">Upgrade</a></div>`;
+ else act=`<div class="row"><b>${inr(c.p)}</b><a class="btn pu sm" href="#/register/${c.id}">Enroll Now</a></div>`;
+ return`<article class="course"><div class="ic" style="background:${c.c}">${c.s}${c.free?'<em class="ribbon">FREE</em>':""}</div><div class="bd"><h3 style="margin:0">${c.n}</h3><p>${c.d}</p><small>${c.L.length} lessons · ${c.cat}</small>${act}</div></article>`};
+const V={
+home(){const fr=C.filter(c=>c.free),pd=C.filter(c=>!c.free);return`<section class="hero2"><div><span class="pill">${fr.length} courses free for ${TRIAL} days · paid from ${inr(Math.min(...C.filter(c=>c.free).map(c=>c.p)))}</span><h1 class="big">Learn to code, step by step.</h1><p class="lead">Short lessons from the first line to a working project. Track your progress to 100%, then earn a certificate.</p><div class="cta"><a class="btn" href="#/courses">Explore ${C.length} courses</a><a class="btn dk" href="${me?"#/dashboard":"#/signup"}">${me?"My learning":"Create free account"}</a></div>
+<div class="stats"><div class="stat"><b>${C.length}</b> courses</div><div class="stat"><b>${C.reduce((a,c)=>a+c.L.length,0)}</b> lessons</div><div class="stat"><b>${inr(Math.min(...pd.map(c=>c.p)))}</b> lowest paid course</div></div></div>
+<div class="term" aria-hidden="true"><div class="bar2"><i></i><i></i><i></i></div><pre><b>$</b> sdc start python
+<u>Lesson 1/5</u> Hello, Python
+<b>>>></b> print('Hello, SDC!')
+Hello, SDC!
+<b>✓</b> Progress: 20% <span class="cur"></span></pre></div></section>
+<h2>Start learning free</h2><p style="color:#cfcaf5;margin:-4px 0 16px">Full lessons, no card needed. Access lasts ${TRIAL} days, then upgrade to keep going.</p><div class="grid">${fr.map(card).join("")}</div>
+<h2>How it works</h2><div class="steps"><div class="step"><div class="n">1</div><h3>Create an account</h3><p>Sign up with your email in under a minute.</p></div><div class="step"><div class="n">2</div><h3>Start free or enroll</h3><p>Try a free course for ${TRIAL} days, or buy any course at a low price.</p></div><div class="step"><div class="n">3</div><h3>Learn and track</h3><p>Complete lessons, watch your percentage rise, and get a certificate.</p></div></div>
+<h2>Popular paid courses</h2><div class="grid">${pd.slice(0,4).map(card).join("")}</div>`},
+courses(){const cats=["All","Free","Web","Programming","Data","Tools"],l=C.filter(c=>filt==="All"||(filt==="Free"?c.free:c.cat===filt));return`<h1 style="text-align:center">All courses</h1><div class="chips" role="group" aria-label="Filter courses">${cats.map(x=>`<button class="chip ${filt===x?"on":""}" data-f="${x}">${x}</button>`).join("")}</div><div class="grid">${l.map(card).join("")}</div>`},
+signup(){return`<div class="panel lt"><h1 style="text-align:center">Sign Up</h1><form id="f" novalidate><label for="nm">Full name</label><input id="nm" autocomplete="name" placeholder="Your name"><label for="em">E-mail</label><input id="em" type="email" autocomplete="email" placeholder="you@example.com"><label for="pw">Create a password (6+ characters)</label><input id="pw" type="password" autocomplete="new-password"><div class="err" id="e" role="alert"></div><button class="btn" style="width:100%;margin-top:10px">Sign Up</button></form><p>Have an account? <a href="#/login"><b>Login</b></a></p></div>`},
+login(){return`<div class="panel lt"><h1 style="text-align:center">Login</h1><form id="f" novalidate><label for="em">E-mail</label><input id="em" type="email" autocomplete="email"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password"><div class="err" id="e" role="alert"></div><button class="btn" style="width:100%;margin-top:10px">Login</button></form><p><a href="#/signup"><b>Create an account</b></a> &nbsp; <a href="#/forgot"><b>Forgot password?</b></a></p></div>`},
+forgot(){return`<div class="panel lt"><h1 style="text-align:center">Reset password</h1><form id="f" novalidate><label for="em">Registered e-mail</label><input id="em" type="email"><label for="pw">New password (6+ characters)</label><input id="pw" type="password" autocomplete="new-password"><div class="err" id="e" role="alert"></div><button class="btn" style="width:100%;margin-top:10px">Update password</button></form></div>`},
+register(id){const c=cid(id)||C[0];if(me&&owns(c.id)){go("learn/"+c.id);return""}const d=draft||{};
+ return`<div class="panel wide"><h1 style="text-align:center;font-size:1.7rem">Course Registration – ${c.n}</h1><form id="f" novalidate><label for="nm">Name</label><input id="nm" value="${esc(d.name||me?.name||"")}">
+<div class="two"><div><label for="age">Age (must be above 15)</label><input id="age" type="number" value="${esc(d.age||"")}"></div><div><label for="dob">Date of birth</label><input id="dob" type="date" value="${esc(d.dob||"")}"></div></div>
+<label for="ph">Phone number</label><input id="ph" type="tel" inputmode="numeric" maxlength="10" value="${esc(d.phone||"")}" placeholder="10-digit mobile">
+<label for="co">Course</label><select id="co">${C.map(x=>`<option value="${x.id}" ${x.id===c.id?"selected":""}>${x.n} – ${inr(x.p)}</option>`).join("")}</select>
+<label for="ge">Gender</label><select id="ge">${["Male","Female","Other"].map(g=>`<option ${d.gender===g?"selected":""}>${g}</option>`).join("")}</select>
+<label for="cy">Country</label><input id="cy" value="${esc(d.country||"India")}"><div class="err" id="e" role="alert"></div><div style="text-align:center;margin-top:12px"><button class="btn">Continue to payment</button></div></form></div>`},
+payment(){const c=cid(draft.course),g=Math.round(c.p*.18);return`<div class="panel wide"><h1 style="text-align:center;font-size:1.8rem">Payment Options</h1>
+<div class="card2"><div class="row"><span>${c.n} – full course</span><span>${inr(c.p)}</span></div><div class="row"><span>GST (18%)</span><span>${inr(g)}</span></div><div class="row" style="font-weight:700;border-top:1px solid #fff6;margin-top:6px;padding-top:6px"><span>Total</span><span>${inr(c.p+g)}</span></div></div>
+<h3 style="margin-top:18px">Select a payment method</h3>
+<label class="pay"><span class="n">1. Google Pay (UPI)</span><i style="background:#2a7bff">G</i><input type="radio" name="pm" value="Google Pay" checked></label>
+<label class="pay"><span class="n">2. SBI Card</span><i style="background:#00a3e0">S</i><input type="radio" name="pm" value="SBI Card"></label>
+<label class="pay"><span class="n">3. Amazon Pay</span><i style="background:#f90">a</i><input type="radio" name="pm" value="Amazon Pay"></label>
+<div id="pd" class="msg"></div><div style="text-align:right"><button class="btn" id="pn">Pay ${inr(c.p+g)}</button></div></div>`},
+success(){const o=last;const mail=`mailto:${encodeURIComponent(o.email)}?subject=${encodeURIComponent("SDC – Enrollment confirmed: "+o.courseName)}&body=${encodeURIComponent(`Hi ${o.name},\n\nYou are enrolled in ${o.courseName}.\nReceipt: ${o.id}\nAmount paid: ${inr(o.total)} via ${o.method}\nDate: ${new Date(o.date).toLocaleString("en-IN")}\n\nStart learning: ${location.href.split("#")[0]}#/learn/${o.course}\n\nHappy learning,\nTeam SDC`)}`;
+ return`<div class="panel wide" style="text-align:center"><div style="font-size:3rem">🎉</div><h1>You are enrolled in ${esc(o.courseName)}!</h1><div class="card2" style="text-align:left"><div>Receipt: <b>${o.id}</b></div><div>Paid: ${inr(o.total)} via ${esc(o.method)}</div><div>Confirmation sent to: ${esc(o.email)}</div></div>
+<p class="msg">A confirmation was added to your Notifications. To also get it in your inbox, tap “Email my confirmation”.</p><p><a class="btn ok" href="${mail}">Email my confirmation</a> <a class="btn" href="#/learn/${o.course}">Start learning</a> <button class="btn dk" onclick="print()">Print receipt</button></p></div>`},
+dashboard(){const o=orders();const done=o.filter(x=>pct(x.course)===100).length;
+ return`<h1>Welcome back, ${esc(me.name)}</h1><div class="stats"><div class="stat"><b>${o.length}</b> enrolled</div><div class="stat"><b>${done}</b> completed</div></div><h2>My courses</h2>
+${o.length?`<div class="grid">${[...new Set(o.map(x=>x.course))].map(cid).map(card).join("")}</div>`:`<div class="msg">You have not enrolled yet. <a href="#/courses" style="color:#fff"><b>Choose a course</b></a>.</div>`}
+${o.length?`<h2 style="margin-top:28px">Purchase history</h2><div style="overflow-x:auto"><table><tr><th>Receipt</th><th>Course</th><th>Amount</th><th>Method</th><th>Date</th></tr>${o.map(x=>`<tr><td>${x.id}</td><td>${x.courseName}</td><td>${inr(x.total)}</td><td>${x.method}</td><td>${new Date(x.date).toLocaleDateString("en-IN")}</td></tr>`).join("")}</table></div>`:""}`},
+learn(id,n){const c=cid(id);if(!c)return V.courses();const d=prog()[id]||[];let i=Math.min(Math.max(+n||0,0),c.L.length-1);const l=c.L[i],p=pct(id),paid=orders().some(o=>o.course===id&&!o.exp),dl=daysLeft(id),banner=!paid&&dl?`<div class="msg warn np">Free access: <b>${dl} day${dl>1?"s":""} left</b>. Your progress is saved. <a href="#/register/${id}" style="color:#ffb84d"><b>Upgrade for ${inr(c.p)}</b></a></div>`:"";
+ return`<div class="row np" style="margin-bottom:12px"><h1 style="margin:0">${c.n}</h1><a class="btn dk sm" href="#/dashboard">← My learning</a></div>
+${banner}<div class="learn"><aside class="side np"><div class="row"><b>${p}% complete</b><small>${d.length}/${c.L.length}</small></div><div class="bar" style="margin:8px 0 12px"><i style="width:${p}%"></i></div>
+${c.L.map((x,k)=>`<button class="les ${k===i?"on":""} ${d.includes(k)?"done":""}" data-i="${k}"><span class="chk">${d.includes(k)?"✓":""}</span>${k+1}. ${esc(x[0])}</button>`).join("")}
+${p===100?`<a class="btn ok" style="margin-top:12px;display:block;text-align:center" href="#/certificate/${id}">🎓 Get certificate</a>`:""}</aside>
+<article class="content"><small>Lesson ${i+1} of ${c.L.length}</small><h2>${esc(l[0])}</h2>${l[1].split("\n\n").map(t=>`<p>${esc(t)}</p>`).join("")}<pre><code>${esc(l[2])}</code></pre>${l[3]?`<div class="prac"><b>Practice:</b> ${esc(l[3])}</div>`:""}${l[4]?`<div class="quiz np"><b>Quick check:</b> ${esc(l[4][0])}${l[4][1].map((o,k)=>`<label><input type="radio" name="q" data-k="${k}">${esc(o)}</label>`).join("")}<div class="qm" id="qm" aria-live="polite"></div></div>`:""}
+<div class="row" style="margin-top:18px;flex-wrap:wrap"><button class="btn dk" id="pv" ${i?"":"disabled"}>← Previous</button><button class="btn ${d.includes(i)?"dk":"ok"}" id="mk" ${l[4]&&!d.includes(i)?"disabled":""}>${d.includes(i)?"Completed ✓ (undo)":"Mark as complete"}</button><button class="btn" id="nx" ${i<c.L.length-1?"":"disabled"}>Next →</button></div></article></div>`},
+certificate(id){const c=cid(id);if(pct(id)<100)return V.dashboard();return`<div class="cert"><h2 style="color:#8e44ff">Certificate of Completion</h2><p>This certifies that</p><h1 style="font-size:2.2rem">${esc(me.name)}</h1><p>has successfully completed all lessons of</p><h2>${c.n}</h2><p>at SDC Learning · ${new Date().toLocaleDateString("en-IN")}</p></div><p style="text-align:center" class="np"><button class="btn" onclick="print()">Print / save as PDF</button></p>`},
+inbox(){const l=notes();return`<h1>Notifications</h1>${l.length?l.map(n=>`<div class="nt ${n.read?"":"un"}"><div style="font-size:1.6rem">✉️</div><div><b>${esc(n.title)}</b><br>${esc(n.body)}<br><small>${new Date(n.date).toLocaleString("en-IN")}</small></div></div>`).join(""):`<div class="msg">No notifications yet.</div>`}`},
+about(){return`<div class="two"><div class="card2" style="font-size:4.5rem;text-align:center">🤔📚</div><div><h1>About Us</h1><p>SDC stands for Skills Development Courses. We make learning job-ready skills simple. Every course takes you from the very first lesson to a working project, with progress tracking so you always know where you stand.</p><p>Try a free course for 7 days, or enroll in any course at a low price. Pay with Google Pay, SBI Card or Amazon Pay and start learning right away.</p></div></div>`},
+help(){return`<div class="panel wide"><h1>Help</h1><ul style="line-height:1.9"><li><b>New user?</b> Use Sign up to create your account.</li><li><b>Forgot password?</b> Use the link on the login page.</li><li><b>Free course?</b> Tap Start free. You get 7 days; after that, upgrade to keep learning (progress is saved).</li><li><b>Enrolling?</b> Choose a course → Enroll Now → fill form → pay.</li><li><b>Learning?</b> Open My Learning, tick “Mark as complete” after each lesson.</li><li><b>Payment issues?</b> Check your connection and method, then <a href="#/contact" style="color:#fff">contact support</a>.</li></ul></div>`},
+contact(){return`<div class="panel wide"><h1>Contact Us</h1><p>Email: <a style="color:#fff" href="mailto:${SUPPORT}">${SUPPORT}</a></p><form id="f" novalidate><label for="nm">Name</label><input id="nm" value="${esc(me?.name||"")}"><label for="em">E-mail</label><input id="em" type="email" value="${esc(me?.email||"")}"><label for="ms">Message</label><input id="ms"><div class="err" id="e" role="alert"></div><button class="btn" style="margin-top:10px">Send message</button></form></div>`}};
+const em=v=>/^\S+@\S+\.\S+$/.test(v);
+const B={
+signup(){$("#f").onsubmit=e=>{e.preventDefault();const n=$("#nm").value.trim(),m=$("#em").value.trim().toLowerCase(),p=$("#pw").value,u=S.get("users",[]);
+ if(n.length<2||!em(m))return $("#e").textContent="Enter your name and a valid e-mail.";if(p.length<6)return $("#e").textContent="Password needs 6+ characters.";
+ if(u.some(x=>x.email===m))return $("#e").textContent="E-mail already registered. Please log in.";
+ u.push({name:n,email:m,pw:H(p)});S.set("users",u);me={name:n,email:m};S.set("session",me);addNote(m,"Welcome to SDC!","Your account is ready. Browse courses and enroll to start learning.");toast("Account created");const t=next||"courses";next=null;go(t)}},
+login(){$("#f").onsubmit=e=>{e.preventDefault();const m=$("#em").value.trim().toLowerCase(),u=S.get("users",[]).find(x=>x.email===m&&x.pw===H($("#pw").value));
+ if(!u)return $("#e").textContent="E-mail or password is incorrect.";me={name:u.name,email:u.email};S.set("session",me);toast("Welcome back, "+u.name);const t=next||"dashboard";next=null;go(t)}},
+forgot(){$("#f").onsubmit=e=>{e.preventDefault();const m=$("#em").value.trim().toLowerCase(),p=$("#pw").value,u=S.get("users",[]),x=u.find(y=>y.email===m);
+ if(!x)return $("#e").textContent="No account found for this e-mail.";if(p.length<6)return $("#e").textContent="Password needs 6+ characters.";x.pw=H(p);S.set("users",u);toast("Password updated. Please log in.");go("login")}},
+register(){const f=$("#f");if(!f)return;f.onsubmit=e=>{e.preventDefault();const v=i=>$("#"+i).value.trim(),age=+v("age"),dob=v("dob");let m="";
+ if(v("nm").length<2)m="Enter your full name.";else if(!(age>15&&age<100))m="Age must be above 15.";else if(!dob||new Date(dob)>new Date())m="Enter a valid date of birth.";
+ else if(Math.abs((Date.now()-new Date(dob))/31557600000-age)>1.5)m="Age and date of birth do not match.";else if(!/^[6-9]\d{9}$/.test(v("ph")))m="Enter a valid 10-digit mobile number.";else if(!v("cy"))m="Enter your country.";
+ if(m)return $("#e").textContent=m;if(owns(v("co")))return go("learn/"+v("co"));
+ draft={name:v("nm"),age,dob,phone:v("ph"),course:v("co"),gender:v("ge"),country:v("cy")};if(!me){next="payment";toast("Please log in or sign up to continue");return go("login")}go("payment")}},
+payment(){const c=cid(draft.course),t=Math.round(c.p*1.18);
+ const info=()=>{const m=document.querySelector("[name=pm]:checked").value;$("#pd").innerHTML=m==="Google Pay"?`Pay ${inr(t)} to UPI ID <b>${UPI_ID}</b> (${PAYEE}).<br><a class="btn sm" style="margin-top:8px" href="upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(PAYEE)}&am=${t}&cu=INR&tn=${encodeURIComponent("SDC "+c.n)}">Open UPI app</a><br><small>After paying, return here and tap Pay.</small>`:m==="SBI Card"?"You will confirm with your bank. SDC never stores card details.":`Approve ${inr(t)} in Amazon Pay.`};
+ document.querySelectorAll("[name=pm]").forEach(r=>r.onchange=info);info();
+ $("#pn").onclick=e=>{const b=e.target;b.disabled=true;b.textContent="Processing…";setTimeout(()=>{
+  const o={id:"SDC"+Date.now().toString().slice(-8),email:me.email,name:draft.name,course:c.id,courseName:c.n,total:t,method:document.querySelector("[name=pm]:checked").value,date:Date.now(),phone:draft.phone};
+  const all=S.get("orders",[]);all.push(o);S.set("orders",all);
+  addNote(me.email,"Enrollment confirmed: "+c.n,`Receipt ${o.id} · ${inr(t)} paid via ${o.method}. All ${c.L.length} lessons are now unlocked.`);
+  last=o;draft=null;go("success")},1200)}},
+learn(id,n){const c=cid(id),i=Math.min(Math.max(+n||0,0),c.L.length-1);
+ document.querySelectorAll(".les").forEach(b=>b.onclick=()=>go(`learn/${id}/${b.dataset.i}`));
+ const set=a=>{const p=S.get("prog_"+me.email,{});p[id]=a;S.set("prog_"+me.email,p)};
+ $("#mk").onclick=()=>{let d=[...(prog()[id]||[])];const had=d.includes(i);d=had?d.filter(x=>x!==i):[...d,i];set(d);
+  if(!had&&d.length===c.L.length){addNote(me.email,"Course completed 🎉","You finished "+c.n+". Your certificate is ready.");toast("100% – course complete! Certificate unlocked")}
+  else if(!had&&i<c.L.length-1)return go(`learn/${id}/${i+1}`);route()};
+ document.querySelectorAll(".quiz input").forEach(r=>r.onchange=()=>{const ok=+r.dataset.k===c.L[i][4][2];$("#qm").textContent=ok?"✓ Correct! You can mark this lesson complete.":"Not quite, try again.";$("#qm").style.color=ok?"#12b886":"#ff6b81";$("#mk").disabled=!ok});
+ $("#pv").onclick=()=>go(`learn/${id}/${i-1}`);$("#nx").onclick=()=>go(`learn/${id}/${i+1}`)},
+contact(){$("#f").onsubmit=e=>{e.preventDefault();if(!$("#nm").value.trim()||!em($("#em").value)||!$("#ms").value.trim())return $("#e").textContent="Fill all fields with a valid e-mail.";$("#f").innerHTML=`<div class="msg">Thanks! We will reply in 1–2 working days.</div>`}}};
+B.courses=()=>document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{filt=b.dataset.f;route()});
+const AUTH=["dashboard","learn","certificate","inbox","payment"];
+function startFree(id){const c=cid(id);if(!c||!c.free)return go("courses");
+ if(!me){next="free/"+id;toast("Log in or sign up to start your free course");return go("login")}
+ if(owns(id))return go("learn/"+id);if(trialUsed(id)){toast("Your free access has ended. Upgrade to continue.");return go("register/"+id)}
+ const o={id:"FREE"+Date.now().toString().slice(-6),email:me.email,name:me.name,course:id,courseName:c.n,total:0,method:"Free trial",date:Date.now(),exp:Date.now()+TRIAL*864e5};
+ const all=S.get("orders",[]);all.push(o);S.set("orders",all);
+ addNote(me.email,"Free access started: "+c.n,`You can learn all ${c.L.length} lessons free until ${new Date(o.exp).toLocaleDateString("en-IN")}. Upgrade for ${inr(c.p)} to keep access after that.`);toast(`Free ${TRIAL}-day access unlocked`);go("learn/"+id)}
+function checkExp(){if(!me)return;const all=S.get("orders",[]);let ch=0;all.forEach(o=>{if(o.email!==me.email||!o.exp)return;const left=o.exp-Date.now();
+ if(left<=0&&!o.f2){o.f2=1;ch=1;addNote(me.email,"Free access ended: "+o.courseName,`Upgrade for ${inr(cid(o.course).p)} to keep learning. Your progress is saved.`)}
+ else if(left>0&&left<2*864e5&&!o.f1){o.f1=1;ch=1;addNote(me.email,"Free access ending soon: "+o.courseName,"Less than 2 days left. Upgrade to keep your access.")}});if(ch)S.set("orders",all)}
+function route(){const [r,a,b]=(location.hash.replace(/^#\//,"")||"").split("/");if(r==="free")return startFree(a);checkExp();let k=V[r]?r:"home";
+ if(AUTH.includes(k)&&!me){next=location.hash.slice(2);toast("Please log in first");return go("login")}
+ if(k==="payment"&&!draft)return go("courses");
+ if(k==="learn"&&!owns(a)){const c=cid(a);if(c&&c.free&&!trialUsed(a))return go("free/"+a);toast(trialUsed(a)?"Free access ended. Upgrade to continue.":"Enroll in this course to unlock lessons");return go("register/"+a)}
+ nav(k==="home"?"":k);const h=V[k](a,b);if(h===""&&k==="register")return;app.innerHTML=h;document.title="SDC – "+k;
+ if(k!=="learn"||!b)scrollTo(0,0);B[k]&&B[k](a,b);
+ if(k==="inbox"){const n=S.get("notes",[]);n.forEach(x=>{if(x.email===me.email)x.read=true});S.set("notes",n);setTimeout(()=>nav("inbox"),0)}}
+$("#mb").onclick=()=>{const o=$("#nav").classList.toggle("open");$("#mb").setAttribute("aria-expanded",o)};
+addEventListener("hashchange",route);route();
+</script></body></html>
